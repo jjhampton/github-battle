@@ -11,12 +11,27 @@ const ProfilePic = (props) => {
     return <img src={props.imageUrl} style={{height: 100, width: 100}} />;
 };
 
+const Link = ({children, href}) => {
+    const changeUrl = () => {
+        window.location.replace(href);
+    };
+
+    return (
+        <span
+            style={{color: 'blue', cursor: 'pointer'}}
+            onClick={changeUrl}>
+            {children}
+        </span>
+    )
+}
+
 const ProfileLink = (props) => {
     return (
         <div>
-            <a href={`https://www.github.com${props.username}`}>
+            <Link href={`https://www.github.com/${props.username}`}>
                 {props.username}
-            </a>
+            </Link>
+
         </div>
     )
 };
